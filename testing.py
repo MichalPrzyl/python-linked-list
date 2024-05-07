@@ -42,3 +42,25 @@ class TestAddingNodes:
         l_list.add_node("world")
         l_list.add_node("whatsup")
         assert l_list.first_node.next_node.value == "world"
+
+class TestGettingNodesByIndex:
+
+    @pytest.fixture
+    def l_list(self):
+        l_list = LinkedList()
+
+        l_list.add_node("hello")
+        l_list.add_node("world")
+        l_list.add_node("third")
+        l_list.add_node("fourth")
+
+        return l_list
+
+    def test_get_value_by_index(self, l_list):
+        assert l_list.at(2) == "third"
+
+    def test_get_value_by_first_index(self, l_list):
+        assert l_list.at(0) == "hello"
+
+    def test_get_value_by_last_index(self, l_list):
+        assert l_list.at(3) == "fourth"
