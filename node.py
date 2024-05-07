@@ -30,6 +30,22 @@ class LinkedList:
                 break
 
 
+    def at(self, index):
+        current_node = self.first_node
+        index_counter = 0
+
+        while True:
+            if index_counter == index:
+                return current_node.value
+
+            if not id(current_node) == id(self.last_node):
+                current_node = current_node.next_node
+                index_counter += 1
+            else:
+                break
+
+
+
 class Node:
     def __init__(self, value) -> None:
         self.value = value
